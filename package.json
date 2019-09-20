@@ -21,8 +21,7 @@
     "socket.io-client": "^2.2.0"
   },
   "scripts": {
-    "heroku-prebuild": "npm install --dev",
-    "start": "npm run build && node server.js",
+    "start": "npm install && npm run build && node server.js",
     "build": "webpack --mode development"
   },
   "eslintConfig": {
