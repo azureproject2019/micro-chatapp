@@ -52,7 +52,7 @@ var server = http.createServer(function (req, res) {
         res.write(JSON.stringify({ Using: 'axios' }));
         res.end();
     }
-    if (req.url == '/request') {
+    if (req.url === '/request') {
         var reqBody = {
             grant_type: 'password',
             username: 'healthcarele',

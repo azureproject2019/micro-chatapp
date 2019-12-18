@@ -1,6 +1,16 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import './ChatApp.css';
+import {
+    Route,
+    Link,
+    Switch,
+    Redirect
+  } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import Sidebar from './Sidebar';
+import './Sidebar.css';
+// import './ChatApp.css';
 // import closeIcon from './error.svg';
 // import mailIdIcon from './sendmail.svg';
 // import jiraTicketIcon from './ticket.svg';
@@ -15,6 +25,9 @@ import GoogleLogin from 'react-google-login';
 
 import ScrollToBottom from 'react-scroll-to-bottom';
 //import 'bootstrap/dist/css/bootstrap.css';
+import GridDetail from './GridDetail';
+import GraphComponent from './Graph';
+
 import './ChatApp.css';
 
 export class ChatApp extends React.Component {
@@ -260,11 +273,38 @@ export class ChatApp extends React.Component {
 
 
       return (
+        <BrowserRouter>
           <div id="chat">
               {/* <div className="col-md-12">
               <h1>{this.props.name}</h1>
               <p onClick={this.editSlogan}>Hello</p>
           </div> */}
+          <SideNav onSelect={(selected) => {   }}  className="sidebar-custom" >
+                {/* <SideNav.Toggle /> */}
+                <SideNav.Nav>
+                    <NavItem className="sidebarNavItems" eventKey="charts">
+                        <NavIcon title="Grid">
+                            <Link to="/" style={{paddingRight:"0"}}><img src="https://nocc.azurepower.com/images/menu/Loading.png"  alt="icon" className="topnavImgLeft" style={{ width: '3em' }} /></Link>
+                        </NavIcon>
+                    </NavItem>
+                    <NavItem className="sidebarNavItems"  eventKey="dashboard">
+                        <NavIcon title="Graph">
+                            <Link to="/Graph" style={{paddingRight:"0"}}><img src="https://nocc.azurepower.com/images/menu/Line-Chart.png" alt="Analytics" style={{width:" 3em"}}/></Link>
+                        </NavIcon>
+                    </NavItem>
+                </SideNav.Nav>
+            </SideNav>
+            
+            <div  style={{paddingLeft:"75px"}}>
+
+               
+                <Switch>
+                <Route path="/" component={GridDetail} />
+                <Route exact path="/Graph" component={GraphComponent} />
+                </Switch>
+                {/* <GraphComponent/> */}
+
+            </div>
 
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
                   <div className="button-greeting">
@@ -552,7 +592,7 @@ export class ChatApp extends React.Component {
               )}
          </div>
          </div>
-         
+        </BrowserRouter>
       );
   }
 }
