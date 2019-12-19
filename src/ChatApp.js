@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import Sidebar from './Sidebar';
 import './Sidebar.css';
-// import './ChatApp.css';
+import './ChatApp.css';
 // import closeIcon from './error.svg';
 // import mailIdIcon from './sendmail.svg';
 // import jiraTicketIcon from './ticket.svg';
@@ -299,8 +299,8 @@ export class ChatApp extends React.Component {
 
                
                 <Switch>
-                <Route path="/" component={GridDetail} />
                 <Route exact path="/Graph" component={GraphComponent} />
+                <Route path="/" component={GridDetail} />
                 </Switch>
                 {/* <GraphComponent/> */}
 
