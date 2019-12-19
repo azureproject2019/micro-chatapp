@@ -689,15 +689,7 @@ input[placeholder]{
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.fieldset-charts{
-    min-width:98%;
-    margin: 0;
-    border-radius: 10px;
-}
-.fieldset-charts:hover{
-    transform: scale(0.99, 0.99) !important;
-    transition: 0.1s;
-}
+
 .card {
     padding: 20px;
     margin: 10px 10px;
@@ -726,7 +718,15 @@ input[placeholder]{
     /* box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
     -5px -5px 30px 15px rgba(0,0,0,0.22); */
 }
-
+.fieldset-chart{
+    min-width:98%;
+    margin: 0;
+    border-radius: 10px;
+}
+.fieldset-chart:hover{
+    transform: scale(0.99, 0.99) !important;
+    transition: 0.1s;
+}
 @media all and (max-width: 500px) {
     .card-list {
         flex-direction: column;
