@@ -145,6 +145,7 @@ export class ChatApp extends React.Component {
 
     }
     submitMessage = messageString => {
+	messageString=encodeURI(messageString);
         const message = { channelType: 'chatbot', message: messageString, userId: this.state.userId }
         this.publishSocket.send(JSON.stringify(message))
     }
