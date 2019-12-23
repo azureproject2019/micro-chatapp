@@ -10,9 +10,12 @@ class GridDetail extends Component{
         super(props);
         this.state = {
           columnDefs: [
-            { headerName: "Make", field: "make" },
-            { headerName: "Model", field: "model" },
-            { headerName: "Price", field: "price" }],
+            { headerName: "Make", field: "make", cellClass: 'cell-wrap',
+            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } },
+            { headerName: "Model", field: "model", cellClass: 'cell-wrap',
+            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } },
+            { headerName: "Price", field: "price", cellClass: 'cell-wrap',
+            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } }],
           rowData: [
             { make: "Toyota", model: "Celica", price: 35000 },
             { make: "Ford", model: "Mondeo", price: 32000 },
@@ -23,7 +26,7 @@ class GridDetail extends Component{
         return(
             <div style={{width:"100%",height:"100vh"}}>
                 <div style={{paddingTop:"10px"}}>
-                <div className="ag-theme-material" style={ {height: '200px', width: '600px'} }>
+                <div className="ag-theme-material" style={ {height: '200px', width: '1200px'} }>
                   <AgGridReact
                       columnDefs={this.state.columnDefs}
                       rowData={this.state.rowData}>
