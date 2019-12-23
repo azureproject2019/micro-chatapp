@@ -5,50 +5,53 @@ import Highcharts from 'highcharts';
 
 const AreaGraphConfig={
     chart: {
-        type: 'area'
-    },
-    title: {
-        text: 'Fruit consumption *'
-    },
-    subtitle: {
-        text: '* Jane\'s banana consumption is unknown',
-        align: 'right',
-        verticalAlign: 'bottom'
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'left',
-        verticalAlign: 'top',
-        x: 100,
-        y: 70,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-    },
-    xAxis: {
-        categories: ['Apples', 'Pears', 'Oranges', 'Bananas', 'Grapes', 'Plums', 'Strawberries', 'Raspberries']
-    },
-    yAxis: {
+        type: 'spline'
+      },
+      title: {
+        text: 'Fruit Searches'
+      },
+      xAxis: {
+        categories: ['Orange', 'Apple', 'Pineapple', 'Lemon', 'Pumkin']
+      },
+      yAxis: {
         title: {
-            text: 'Y-Axis'
+          text: ''
+        },
+        // labels: {
+        //   formatter: function () {
+        //     return this.value + '°';
+        //   }
+        // }
+      },
+      tooltip: {
+        crosshairs: true,
+        shared: true
+      },
+      plotOptions: {
+        spline: {
+          marker: {
+            radius: 4,
+            lineColor: '#666666',
+            lineWidth: 1
+          }
         }
-    },
-    plotOptions: {
-        area: {
-            fillOpacity: 0.5
-        }
-    },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name: 'John',
-        data: [0, 1, 4, 4, 5, 2, 3, 7]
-    }, {
-        name: 'Jane',
-        data: [1, 0, 3, 0, 3, 1, 2, 1]
-    }]
+      },
+      credits:{
+        enabled:false
+      },
+      series: [{
+        name: 'Tokyo',
+        marker: {
+          symbol: 'square'
+        },
+        data: [7.0, 7.0,7.0,7.0, {
+          y: 7.0,
+          marker: {
+            symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+          }
+        }]
+    
+      }]
 }
 
 class AreaGraph extends Component{

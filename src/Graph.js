@@ -24,12 +24,10 @@ class GraphComponent extends Component {
                         <option>Pie</option>
                         <option>Graph</option>
                     </select>
-
                 </div>
                     <div style={{ padding: "0",overflow:"auto" }}>
                     <Row style={{marginLeft: "0px"}}>
                         <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
-
                             <Card className="fieldset-chart">
                                 <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend>
                                 <div style={{width:"90%",margin:"auto"}}>
@@ -40,7 +38,6 @@ class GraphComponent extends Component {
                     </Row>
                     <Row style={{marginLeft: "0px"}}>
                         <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
-
                             <Card className="fieldset-chart">
                                 <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Weather Relavent Search</legend>
                                 <div style={{width:"90%",margin:"auto"}}>
@@ -52,7 +49,7 @@ class GraphComponent extends Component {
                     <Row style={{marginLeft: "0px"}}>
                         <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
                             <Card className="fieldset-chart">
-                            <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend>
+                            <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Item Relavent Search</legend>
                             <div style={{width:"90%",margin:"auto"}}>
                                 <AreaGraph/>
                             </div>

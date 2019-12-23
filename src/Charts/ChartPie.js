@@ -22,7 +22,8 @@ plotOptions: {
         cursor: 'pointer',
         dataLabels: {
             enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            format: '<b>{point.name}</b>'
+            // : {point.percentage:.1f} %
         }
     }
 },
@@ -34,15 +35,20 @@ series: [{
     colorByPoint: true,
     data: [{
         name: 'Non AC',
-        y: 61.41,
-        sliced: true,
-        selected: true
+        y: 100/5,
     }, {
         name: 'AC',
-        y: 11.84
+        y: 100/5
     }, {
         name: 'Deluxe',
-        y: 10.85
+        y: 100/5
+    },
+    {
+        name: 'Ultra Deluxe',
+        y: 100/5
+    },{
+        name: 'Villa',
+        y: 100/5
     }]
 }]
 }

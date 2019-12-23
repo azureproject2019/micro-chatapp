@@ -3,7 +3,7 @@ const axios = require('axios');
 var request = require('request');
 var qs = require('querystring')
 var server = http.createServer(function (req, res) {
-    if (req.url == '/axios') {
+    if (req.url === '/axios') {
 
         const requestBody = {
             grant_type: 'password',

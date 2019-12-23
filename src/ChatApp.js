@@ -509,7 +509,7 @@ export class ChatApp extends React.Component {
                                       </div>
                                   </div>
                               </ScrollToBottom>
-                              <form onSubmit={this.handleSubmit}>
+                              <form onSubmit={this.handleSubmit} style={{background:"#fff"}}>
                                   <input
                                       value={this.state.userMessage}
                                       onInput={this.handleChange}

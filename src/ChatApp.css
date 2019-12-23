@@ -1019,3 +1019,85 @@ div[title]{
     /* background-color: #333; */
     /* color:#fff; */
 }
+.ag-theme-material {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    color: rgba(0,0,0,.87);
+    font-family: Roboto,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+}
+.ag-theme-material .ag-header-cell, .ag-theme-material .ag-header-group-cell {
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 0 solid #e2e2e2;
+}
+.ag-header-cell-label {
+    text-overflow: clip;
+    overflow: hidden;
+    white-space:pre-wrap;
+}
+.ag-header-cell-label .ag-header-cell-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}
+.ag-theme-material .ag-header-cell, .ag-theme-material .ag-header-group-cell {
+    border-style: solid;
+    border-color: #e2e2e2;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-width: 0;
+}
+.ag-theme-material .ag-cell {
+    line-height: 46px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: 1px solid transparent;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 20px;
+}
+.ag-theme-material .ag-header{
+    background-color: #333;
+    color: #fff;
+}
+.ag-theme-material 
+.ag-header-group-cell:not(.ag-column-resizing) 
++ .ag-header-group-cell:hover, 
+.ag-theme-material 
+.ag-header-group-cell:not(.ag-column-resizing)
+ + .ag-header-group-cell.ag-column-resizing, 
+ .ag-theme-material .ag-header-cell:not(.ag-column-resizing)
+  + .ag-header-cell:hover,
+   .ag-theme-material
+    .ag-header-cell:not(.ag-column-resizing)
+     + .ag-header-cell.ag-column-resizing, 
+     .ag-theme-material .ag-header-group-cell:first-of-type:hover,
+      .ag-theme-material .ag-header-group-cell:first-of-type.ag-column-resizing,
+       .ag-theme-material .ag-header-cell:first-of-type:hover,
+        .ag-theme-material .ag-header-cell:first-of-type.ag-column-resizing{
+    background-color: #333;
+    color: #fff;
+}
+.products-actions-link{
+    margin-right:10px;
+}
+
+.azure-loss-grid .ag-header-cell, .ag-theme-material .ag-header-group-cell {
+    padding-right:5px !important;
+}
+.taskStatistics-grid .ag-header{
+    background-color: #135C8A;
+}
+.taskStatistics-grid .ag-header-group-cell:not(.ag-column-resizing) + .ag-header-group-cell:hover,
+.taskStatistics-grid .ag-header-cell:not(.ag-column-resizing) + .ag-header-cell:hover{
+    background-color:#135C8A ;
+}
+.taskStatistics-grid .ag-header-cell:not(.ag-header-group-cell-no-group), .ag-theme-material .ag-header-group-cell:not(.ag-header-group-cell-no-group){
+    padding: 0 5px;
+}
+.ag-row-no-animation .ag-row {
+    border-bottom: 1px solid #33333317;
+}
