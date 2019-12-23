@@ -77,7 +77,7 @@ export class ChatApp extends React.Component {
     }
 
     startListenerWebSocketClient() {
-        this.listenSocket = new WebSocket("wss://reactbot-nodered-flow.herokuapp.com/public/messagepublish"); //server publishes
+        this.listenSocket = new WebSocket("wss://micro-chatapp-nodered-flow.herokuapp.com/public/messagepublish"); //server publishes
         this.listenSocket.onopen = () => {
             // on connecting, do nothing but log it to the console
         }
@@ -126,7 +126,7 @@ export class ChatApp extends React.Component {
 
     }
     startPublisherWebSocketClient() {
-        this.publishSocket = new WebSocket("wss://reactbot-nodered-flow.herokuapp.com/public/messagereceive");
+        this.publishSocket = new WebSocket("wss://micro-chatapp-nodered-flow.herokuapp.com/public/messagereceive");
 
         this.publishSocket.onopen = () => {
             // on connecting, do nothing but log it to the console
