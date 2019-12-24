@@ -296,7 +296,7 @@ export class ChatApp extends React.Component {
                 </SideNav.Nav>
             </SideNav>
             
-            <div  style={{paddingLeft:"75px"}}>
+            <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
 
                
                 <Switch>
