@@ -107,7 +107,7 @@ export class ChatApp extends React.Component {
             let response=JSON.parse(event.data.trim());
             if(response.userId === this.state.userId) {
                 let message=response.data;
-                if(isHTML(message)) {
+                if(isHTML(message) && message.indexOf('Error: connect ECONNREFUSED') !== -1) {
                     message='Some thing went wrong, please try again after some time.'
                 }
                 const msg = {
