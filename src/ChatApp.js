@@ -306,7 +306,7 @@ export class ChatApp extends React.Component {
                 {/* <GraphComponent/> */}
 
             </div>
-
+            <div style={{maxHeight:"calc(100% - 40px)"}}>
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
                   <div className="button-greeting">
                       <div className="button-greeting-close">
@@ -591,6 +591,7 @@ export class ChatApp extends React.Component {
           ):( 
                ""
               )}
+         </div>
          </div>
          </div>
         </BrowserRouter>

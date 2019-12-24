@@ -19,7 +19,7 @@ class GraphComponent extends Component {
                 {/* <Card style={{ margin: "auto" }}> */}
                 <div style={{paddingTop:"10px"}}>
                     <Form.Label style={{padding:"5px 10px"}}>Type</Form.Label>
-                    <select className="form-control">
+                    <select className="form-control" style={{width:"10%"}}>
                         <option>Column</option>
                         <option>Pie</option>
                         <option>Graph</option>
