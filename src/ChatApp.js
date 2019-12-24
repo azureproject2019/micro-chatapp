@@ -105,7 +105,15 @@ export class ChatApp extends React.Component {
 
         this.listenSocket.onmessage = event => {
             let response=JSON.parse(event.data.trim());
-            if(response.userId === this.state.userId) {
+	    if(!response.data && response.data.indexOf('Error: connect ECONNREFUSED') !== -1) {
+		  const msg = {
+                    text: convertToMessage('Some thing went wrong, please try again after some time.'),
+                    user: 'ai'
+                };
+		this.setState({
+                    conversation: [...this.state.conversation, msg],
+                });
+	    } else if(response.userId === this.state.userId) {
                 let message=response.data;
                 if(isHTML(message) && message.indexOf('Error: connect ECONNREFUSED') !== -1) {
                     message='Some thing went wrong, please try again after some time.'
