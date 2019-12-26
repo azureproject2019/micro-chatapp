@@ -6,17 +6,22 @@ import Form from 'react-bootstrap/Form';
 // import '../../../../styles/Dashboard.scss';
 import ChartPie from "./Charts/ChartPie";
 import WeatherChart from "./Charts/WeatherChart";
-import AreaGraph from "./Charts/AreaGraph";
+
 
 class GraphComponent extends Component {
     constructor(props) {
         super(props);
-        this.state={}
+        this.state={
+            graphData:[]
+        }
     }
 
     render() {
+        this.graphData=this.props.response;
+        var count=Object.keys(this.graphData[0]).length;
         return (
                 <div style={{width:"100%",height:"100vh"}}>
+                {/* {console.log("graph data"+this.graphData)} */}
                 {/* <Card style={{ margin: "auto" }}> */}
                 <div style={{paddingTop:"10px"}}>
                     <Form.Label style={{padding:"5px 10px"}}>Type</Form.Label>
@@ -30,9 +35,17 @@ class GraphComponent extends Component {
                         <Row style={{marginLeft: "0px"}}>
                             <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
                                 <Card className="fieldset-chart">
-                                    <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend>
+                                    {/* <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend> */}
                                     <div style={{width:"90%",margin:"auto"}}>
-                                        <ChartPie/>
+                                    {count === 1?
+                                        <ChartPie graphData={this.graphData}/> :''
+                                    }
+                                    {count === 2?
+                                        <WeatherChart graphData={this.graphData}/> :''
+                                    }
+                                    {/* {count === 3?
+                                        <ChartPie graphData={this.graphData}/> :'null'
+                                    } */}
                                     </div>
                                 </Card>
                             </Col>

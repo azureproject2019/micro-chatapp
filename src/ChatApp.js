@@ -40,7 +40,12 @@ export class ChatApp extends React.Component {
   static defaultProps = {
     name: "Test"
   }
-
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//         graphData:[]
+//     }
+// }
     constructor(props) {
         super(props);
         this.state = {
@@ -52,6 +57,7 @@ export class ChatApp extends React.Component {
             isChatModalOpened : false,
             toEmailAddress : '',
             isAuthenticated : false,
+            toPassResponce:[],
             jira : [{
                 itemType:"",
                 itemValue:""
@@ -105,7 +111,8 @@ export class ChatApp extends React.Component {
 
         this.listenSocket.onmessage = event => {
             let response=JSON.parse(event.data.trim());
-            // console.log(response)
+            console.log(response.data);
+            this.toPassResponce=response.data;
 	    if(response.data !== undefined && response.data !== null && response.data.indexOf('Error: connect ECONNREFUSED') !== -1) {
 		  const msg = {
                     text: convertToMessage('Some thing went wrong, please try again after some time.'),
@@ -304,17 +311,20 @@ export class ChatApp extends React.Component {
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
+            {/* {this.toPassResponce.length>1? */}
             
             <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
 
                
                 <Switch>
-                <Route exact path="/Graph" component={GraphComponent} />
-                <Route path="/" component={GridDetail} />
+                <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
+                <Route path="/" component={()=> <GridDetail/>} />
                 </Switch>
                 {/* <GraphComponent/> */}
 
             </div>
+            
+            
             <div style={{maxHeight:"calc(100% - 40px)"}}>
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
                   <div className="button-greeting">
