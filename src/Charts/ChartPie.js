@@ -43,11 +43,10 @@ series: [{
     }, {
         name: 'Deluxe',
         y: 100/5
-    },
-    {
+    }, {
         name: 'Ultra Deluxe',
         y: 100/5
-    },{
+    }, {
         name: 'Villa',
         y: 100/5
     }] 
@@ -57,6 +56,7 @@ series: [{
 class ChartPie extends Component{
     constructor(props) {
         super(props);
+        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
         this.state = {
             seriesData:[],
             graphData:[]
@@ -65,10 +65,9 @@ class ChartPie extends Component{
     }
     
     render(){
-        this.graphData=this.props.graphData;
         return(
             <div>
-            {console.log("Chart"+this.seriesData)}
+            {console.log("Chart"+this.responseData)}
                 <ReactHighcharts config={ChartPieConfig}/>
             </div>
         )

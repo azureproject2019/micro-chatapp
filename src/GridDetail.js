@@ -8,7 +8,7 @@ import './ChatApp.css';
 class GridDetail extends Component{
     constructor(props) {
         super(props);
-        let responseData=(this.props.response != undefined && this.props.response != null)?JSON.parse(this.props.response):this.props.response;
+        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
         this.state = {
           count:1,
           rowData:responseData
@@ -28,7 +28,7 @@ class GridDetail extends Component{
       // this.setState({count:Object.keys(this.props.response[0]).length});
         return(
             <div style={{width:"100%",height:"100vh"}}>
-            {console.log(this.props.response)}
+            {/* {console.log(Object.keys(this.props.response[0]))} */}
                 <div style={{paddingTop:"10px"}}>
                 <div className="ag-theme-material" style={ {height: '200px', width: '1200px'} }>
                   <AgGridReact
