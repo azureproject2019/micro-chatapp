@@ -8,7 +8,7 @@ import './ChatApp.css';
 class GridDetail extends Component{
     constructor(props) {
         super(props);
-        let responseData=(this.props.response != undefined && this.props.response != null)?JSON.parse(JSON.stringify(this.props.response)):this.props.response;
+        let responseData=(this.props.response != undefined && this.props.response != null)?JSON.parse(this.props.response):this.props.response;
         this.state = {
           count:1,
           rowData:responseData
