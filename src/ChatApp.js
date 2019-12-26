@@ -318,7 +318,7 @@ export class ChatApp extends React.Component {
                
                 <Switch>
                 <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
-                <Route path="/" component={()=> <GridDetail/>} />
+                <Route path="/" component={()=> <GridDetail  response={this.toPassResponce}/>} />
                 </Switch>
                 {/* <GraphComponent/> */}
 

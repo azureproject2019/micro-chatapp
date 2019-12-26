@@ -9,28 +9,29 @@ class GridDetail extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          columnDefs: [
-            { headerName: "Make", field: "make", cellClass: 'cell-wrap',
-            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } },
-            { headerName: "Model", field: "model", cellClass: 'cell-wrap',
-            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } },
-            { headerName: "Price", field: "price", cellClass: 'cell-wrap',
-            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } }
-          ],
-          rowData: [
-            { make: "Toyota", model: "Celica", price: 35000 },
-            { make: "Ford", model: "Mondeo", price: 32000 },
-            { make: "Porsche", model: "Boxter", price: 72000 }
-          ]
+          count:1,
+          rowData:this.props.response
         }
       }
+      createColumnDefs() {
+        if(this.state.count===1){
+        return [
+          { 
+            headerName: "Menu Name", field: "menu___Name", cellClass: 'cell-wrap',
+            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+          }
+        ]
+      }
+      }
     render(){
+      // this.setState({count:Object.keys(this.props.response[0]).length});
         return(
             <div style={{width:"100%",height:"100vh"}}>
+            {console.log(this.props.response)}
                 <div style={{paddingTop:"10px"}}>
                 <div className="ag-theme-material" style={ {height: '200px', width: '1200px'} }>
                   <AgGridReact
-                      columnDefs={this.state.columnDefs}
+                      columnDefs={this.createColumnDefs()}
                       rowData={this.state.rowData}>
                   </AgGridReact>
                 </div>

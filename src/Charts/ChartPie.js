@@ -66,17 +66,6 @@ class ChartPie extends Component{
     
     render(){
         this.graphData=this.props.graphData;
-        // this.graphData=this.graphData.map(i=>console.log(i))
-        // this.seriesData= this.graphData.map((el)=> {
-        //     var o = Object.assign({}, el);
-        //     o.y = 100;
-        //     return o;
-        //   })
-        // this.setState({seriesData:this.graphData.map((el)=> {
-        //         var o = Object.assign({}, el);
-        //         o.y = 100;
-        //         return o;
-        //       })} )
         return(
             <div>
             {console.log("Chart"+this.seriesData)}
