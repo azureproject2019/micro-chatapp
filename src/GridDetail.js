@@ -10,7 +10,7 @@ class GridDetail extends Component{
         super(props);
         this.state = {
           count:1,
-          rowData:this.props.response
+          rowData:JSON.parse(JSON.stringify(this.props.response))
         }
       }
       createColumnDefs() {
