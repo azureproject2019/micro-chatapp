@@ -11,6 +11,7 @@ import AreaGraph from "./Charts/AreaGraph";
 class GraphComponent extends Component {
     constructor(props) {
         super(props);
+        this.state={}
     }
 
     render() {
@@ -26,40 +27,17 @@ class GraphComponent extends Component {
                     </select>
                 </div>
                     <div style={{ padding: "0",overflow:"auto" }}>
-                    <Row style={{marginLeft: "0px"}}>
-                        <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
-                            <Card className="fieldset-chart">
-                                <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend>
-                                <div style={{width:"90%",margin:"auto"}}>
-                                    <ChartPie/>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row style={{marginLeft: "0px"}}>
-                        <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
-                            <Card className="fieldset-chart">
-                                <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Weather Relavent Search</legend>
-                                <div style={{width:"90%",margin:"auto"}}>
-                                    <WeatherChart/>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row style={{marginLeft: "0px"}}>
-                        <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
-                            <Card className="fieldset-chart">
-                            <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Item Relavent Search</legend>
-                            <div style={{width:"90%",margin:"auto"}}>
-                                <AreaGraph/>
-                            </div>
-                            </Card>
-                        </Col>
-                        {/* <Col style={{ padding: "0.5%", paddingTop: "20px" }}>
-                        </Col> */}
-                    </Row>
-                    {/* </Card.Body> */}
-                </div>
+                        <Row style={{marginLeft: "0px"}}>
+                            <Col style={{ padding: "0.5%", paddingTop: "10px" }}>
+                                <Card className="fieldset-chart">
+                                    <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend>
+                                    <div style={{width:"90%",margin:"auto"}}>
+                                        <ChartPie/>
+                                    </div>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </div>
             </div>
         )
     }

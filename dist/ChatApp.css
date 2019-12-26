@@ -14663,6 +14663,7 @@ h1,h2,h3,h4,h5,h6{
     background-color: #ffffff;
     color:#333;
     border-radius:20px 20px 3px 20px;
+    word-wrap: break-word;
 }
 
 .chat-content {
@@ -14676,13 +14677,14 @@ h1,h2,h3,h4,h5,h6{
     border-radius:20px 20px 20px 3px;
     font-size:0.8rem;
     font-weight: 600 !important;
+    word-wrap: break-word;
 }
 
 .chat-content:hover{
     /* -webkit-animation-name: rubberBand;
     animation-name: rubberBand; */
     transition: 0.2s;
-    transform: scale(0.97, 0.97);
+    /* transform: scale(0.97, 0.97); */
 
 }
 .mail-box{

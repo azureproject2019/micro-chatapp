@@ -105,6 +105,7 @@ export class ChatApp extends React.Component {
 
         this.listenSocket.onmessage = event => {
             let response=JSON.parse(event.data.trim());
+            // console.log(response)
 	    if(response.data !== undefined && response.data !== null && response.data.indexOf('Error: connect ECONNREFUSED') !== -1) {
 		  const msg = {
                     text: convertToMessage('Some thing went wrong, please try again after some time.'),
