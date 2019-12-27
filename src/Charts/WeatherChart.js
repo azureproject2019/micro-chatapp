@@ -4,91 +4,18 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
 const WeatherChartConfig={
-    // chart: {
-    //     type: 'column',
-    //   },
-    //   title: {
-    //     text: 'Weather Report '
-    //   },
-    //   xAxis: {
-    //     type: 'category',
-    //     title:{
-    //       text:"20-nov"
-    //     }
-    //   },
-    //   yAxis: {
-    //     title: {
-    //       text: ' '
-    //     }
-    
-    //   },
-    //   legend: {
-    //     enabled: true,
-    //     style:{
-    //         fontSize:"10px"
-    //     }
-    //   },
-    //   credits:{
-    //       enabled:false
-    //   },
-    //   plotOptions: {
-    //     series: {
-    //       borderWidth: 0,
-    //       dataLabels: {
-    //         enabled: true,
-    //         format: '{point.y:.1f}%'
-    //       }
-    //     }
-    //   },
-    
-    //   tooltip: {
-    //     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    //     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-    //   },
-    
-    //   series: [
-    //     {
-    //       name: "Delhi",
-    //       data: [
-    //         {
-    //           y: 7.23,
-    //         },
-    //       ]
-    //     },
-    //     {
-    //       name: "Mumbai",
-    //       data: [
-    //         {
-    //           y: 6.23,
-    //         },
-    //       ]
-    //     },
-    //     {
-    //       name: "Chennai",
-    //       data: [
-    //         {
-    //           y: 4.23,
-    //         },
-    //       ]
-    //     }
-    //   ]
     chart: {
       type: 'column'
   },
   title: {
-    text: 'Weather Report '
+    text: ' '
   },
-  // accessibility: {
-  //     announceNewData: {
-  //         enabled: true
-  //     }
-  // },
   xAxis: {
       type: 'category'
   },
   yAxis: {
       title: {
-          text: 'Celsius'
+          text: ' '
       }
 
   },
@@ -115,38 +42,32 @@ const WeatherChartConfig={
 
   series: [
       {
-          name: "Weather City",
+          name: " ",
           colorByPoint: true,
           data: [
               {
                   name: "Chennai",
                   y: 12.74,
-                  drilldown: "Chennai"
               },
               {
                   name: "Kolkata",
                   y: 10.57,
-                  drilldown: "Kolkata"
               },
               {
                   name: "Delhi",
                   y: 7.23,
-                  drilldown: "Delhi"
               },
               {
                   name: "Mumbai",
                   y: 5.58,
-                  drilldown: "Mumbai"
               },
               {
                   name: "Kanpur",
                   y: 4.02,
-                  drilldown: "Kanpur"
               },
               {
                   name: "Kochi",
                   y: 1.92,
-                  drilldown: "Kochi"
               },
               
           ]
@@ -155,9 +76,20 @@ const WeatherChartConfig={
 }
 
 class WeatherChart extends Component{
+    constructor(props) {
+        super(props);
+        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
+        this.state = {
+            seriesData:[],
+            graphData:responseData
+
+        }
+    }
+     
     render(){
         return(
             <div>
+            {console.log("Chart"+this.state.graphData)}
                 <ReactHighcharts config={WeatherChartConfig}/>
             </div>
         )
