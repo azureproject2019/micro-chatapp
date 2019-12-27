@@ -10,27 +10,38 @@ class GridDetail extends Component{
         super(props);
         let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
         this.state = {
-          count:1,
+          count:0,
           rowData:responseData
         }
       }
       createColumnDefs() {
-        if(this.state.count===1){
+        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
+        var count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
+        if(count===0){
+          console.log("count=0"+count)
+          return [
+            { 
+              headerName: "Menu Name", field: "menu___Name", cellClass: 'cell-wrap',
+              autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+            }
+          ]
+        }
+        if(count===1){
+          console.log("count=1"+count)
+          var responseMenu=Object.keys(responseData[0]);
         return [
           { 
-            headerName: "Menu Name", field: "menu___Name", cellClass: 'cell-wrap',
+            headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
             autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
           }
         ]
       }
       }
     render(){
-      // this.setState({count:Object.keys(this.props.response[0]).length});
         return(
             <div style={{width:"100%",height:"100vh"}}>
-            {/* {console.log(Object.keys(this.props.response[0]))} */}
                 <div style={{paddingTop:"10px"}}>
-                <div className="ag-theme-material" style={ {height: '200px', width: '1200px'} }>
+                <div className="ag-theme-material" style={{height: '650px', width: '1200px'} }>
                   <AgGridReact
                       columnDefs={this.createColumnDefs()}
                       rowData={this.state.rowData}>
