@@ -28,7 +28,7 @@ class GridDetail extends Component{
         }
         if(count===1){
           console.log("count=1"+count)
-          var responseMenu=Object.keys(responseData[0]);
+          let responseMenu=Object.keys(responseData[0]);
         return [
           { 
             headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
@@ -36,6 +36,38 @@ class GridDetail extends Component{
           }
         ]
       }
+      if(count===2){
+        console.log("count=1"+count)
+        let responseMenu=Object.keys(responseData[0]);
+      return [
+        { 
+          headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
+          autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+        },
+        { 
+          headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
+          autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+        }
+      ]
+    }
+    if(count===3){
+      console.log("count=1"+count)
+      let responseMenu=Object.keys(responseData[0]);
+    return [
+      { 
+        headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
+        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+      },
+      { 
+        headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
+        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+      },
+      { 
+        headerName:responseMenu[2], field: responseMenu[2], cellClass: 'cell-wrap',
+        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+      }
+    ]
+  }
       }
     render(){
         return(
