@@ -19,13 +19,9 @@ class GraphComponent extends Component {
     }
 
     render() {
-        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
-        if(typeof(responseData)==='string'){
-            var count=0;
-        }
-        if(typeof(responseData)==='object'){
-            count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
-        }
+        let responseData=this.props.response;
+        var count=0;
+        count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
         return (
                 <div style={{width:"100%",height:"100vh"}}>
                     {console.log(count)}
@@ -43,7 +39,7 @@ class GraphComponent extends Component {
                                 <Card className="fieldset-chart">
                                     {/* <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend> */}
                                     <div style={{width:"90%",margin:"auto"}}>
-                                    {count === 0 ||count===undefined?
+                                    {count === 0 || count===undefined?
                                         <div>No data to Show</div> :''
                                     }
                                     {/* {(count === 1 && (typeof(this.props.response)==='string'))?

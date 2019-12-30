@@ -8,15 +8,17 @@ import './ChatApp.css';
 class GridDetail extends Component{
     constructor(props) {
         super(props);
-        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
+        let responseData=this.props.response;
         this.state = {
           count:0,
           rowData:responseData
         }
       }
       createColumnDefs() {
-        let responseData=(this.props.response !== undefined && this.props.response !== null)?JSON.parse(this.props.response):this.props.response;
-        var count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
+        let responseData=this.props.response;
+        var count=0;
+        count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
+        // var count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
         if(count===0){
           console.log("count=0"+count)
           return [

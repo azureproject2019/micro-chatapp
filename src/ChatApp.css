@@ -670,7 +670,8 @@ input[placeholder]{
     overflow: auto;
 }
 .room-response{
-    display: inline;
+    display: inline-block;
+    float: right;
     margin-left: 5px;
 }
 .form-control{

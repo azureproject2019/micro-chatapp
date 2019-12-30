@@ -9,6 +9,10 @@ import {
 import { BrowserRouter } from 'react-router-dom';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import Sidebar from './Sidebar';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 import './Sidebar.css';
 import './ChatApp.css';
 // import closeIcon from './error.svg';
@@ -58,6 +62,7 @@ export class ChatApp extends React.Component {
             toEmailAddress : '',
             isAuthenticated : false,
             toPassResponce:[],
+            checkResponse:[],
             jira : [{
                 itemType:"",
                 itemValue:""
@@ -92,7 +97,7 @@ export class ChatApp extends React.Component {
             var doc = new DOMParser().parseFromString(str, "text/html");
             return Array.from(doc.body.childNodes).some(node => node.nodeType === 1);
         }
-
+        
         function convertToMessage(str) {
             let convertedMessage='';
             if(typeof str == 'string') {
@@ -108,11 +113,24 @@ export class ChatApp extends React.Component {
             }
             return convertedMessage;
         }
-
+        function isJson(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
         this.listenSocket.onmessage = event => {
             let response=JSON.parse(event.data.trim());
             console.log(response.data);
-            this.toPassResponce=response.data;
+            // this.checkResponse=response.data;
+            if(isJson(response.data)){
+                this.toPassResponce=(response.data !== undefined && response.data !== null)?JSON.parse(response.data):response.data;
+            }
+            else{
+                this.toPassResponce=response.data;
+            }
 	    if(response.data !== undefined && response.data !== null && response.data.indexOf('Error: connect ECONNREFUSED') !== -1) {
 		  const msg = {
                     text: convertToMessage('Some thing went wrong, please try again after some time.'),
@@ -312,18 +330,26 @@ export class ChatApp extends React.Component {
                 </SideNav.Nav>
             </SideNav>
             {/* {this.toPassResponce.length>1? */}
-            
-            <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
-
-               
+            {typeof(this.toPassResponce)==='object'?<div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
                 <Switch>
                 <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
                 <Route path="/" component={()=> <GridDetail  response={this.toPassResponce}/>} />
                 </Switch>
                 {/* <GraphComponent/> */}
-
             </div>
-            
+            :
+            <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
+                <Row style={{marginLeft: "0px"}}>
+                    <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
+                        <Card className="fieldset-chart">
+                            <div style={{width:"90%",margin:"auto"}}>
+                                <div>No data to Show</div> 
+                            </div>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
+        }
             
             <div style={{maxHeight:"calc(100% - 40px)"}}>
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
