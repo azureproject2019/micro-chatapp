@@ -19,9 +19,11 @@ class ChartPie extends Component{
         //     y:100/this.props.response.length
             
         // }
-        let seriesChart=this.props.response.map(i=>Object.assign(i,{
-            name:i[Object.keys(this.props.response[0])[0]],
-            y:100/this.props.response.length
+        let responseData=this.props.response;
+        
+        let seriesChart=responseData.map(i=>Object.assign(i,{
+            name:i[Object.keys(responseData[0])[0]],
+            y:100/responseData.length
         }));
         this.state.seriesData.push(seriesChart);
         const ChartPieConfig={

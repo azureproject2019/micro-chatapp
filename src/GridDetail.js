@@ -14,15 +14,17 @@ class GridDetail extends Component{
           rowData:responseData
         }
       }
-      createColumnDefs() {
+    createColumnDefs() {
         let responseData=this.props.response;
+        
         var count=0;
+        
         count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
         // var count=(responseData !== undefined && responseData !== null)?Object.keys(responseData[0]).length:0;
         if(count===0){
           console.log("count=0"+count)
           return [
-            { 
+            {
               headerName: "Menu Name", field: "menu___Name", cellClass: 'cell-wrap',
               autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
             }
