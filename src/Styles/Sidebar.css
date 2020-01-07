@@ -4,6 +4,7 @@
     position: fixed;
     min-height:100%;
     border-right: 1px solid #33333324;
+    z-index: 100;
     /* overflow-y:scroll; */
     /* overflow-x:hidden; */
     /* color: #2785ff; */

@@ -4323,6 +4323,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
     position: fixed;
     min-height:100%;
     border-right: 1px solid #33333324;
+    z-index: 100;
     /* overflow-y:scroll; */
     /* overflow-x:hidden; */
     /* color: #2785ff; */

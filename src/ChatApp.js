@@ -100,9 +100,17 @@ export class ChatApp extends React.Component {
         
         function convertToMessage(str) {
             let convertedMessage='';
+            // let tempstrtype=JSON.parse(str);
             if(typeof str == 'string') {
-                convertedMessage=str;
-            } else {
+                try {
+                    let tempstr=JSON.parse(str);
+                    convertedMessage=tempstr.Object.keys(tempstr[0]);
+                } catch (e) {
+                    convertedMessage=str;
+                }
+                // convertedMessage=str;
+            } 
+            else {
                 try {
                     let tempstr=JSON.stringify(str);
                     JSON.parse(tempstr);
@@ -111,6 +119,7 @@ export class ChatApp extends React.Component {
                     convertedMessage=str;
                 }
             }
+            console.log("and the message is " + convertedMessage)
             return convertedMessage;
         }
         function isJson(str) {
@@ -123,7 +132,7 @@ export class ChatApp extends React.Component {
         }
         this.listenSocket.onmessage = event => {
             let response=JSON.parse(event.data.trim());
-            console.log(response.data);
+            // console.log(response.data);
             // this.checkResponse=response.data;
             if(isJson(response.data)){
                 this.toPassResponce=(response.data !== undefined && response.data !== null)?JSON.parse(response.data):response.data;
@@ -131,6 +140,7 @@ export class ChatApp extends React.Component {
             else{
                 this.toPassResponce=response.data;
             }
+            console.log("------------"+this.toPassResponce);
 	    if(response.data !== undefined && response.data !== null && response.data.indexOf('Error: connect ECONNREFUSED') !== -1) {
 		  const msg = {
                     text: convertToMessage('Some thing went wrong, please try again after some time.'),
@@ -225,22 +235,41 @@ export class ChatApp extends React.Component {
         } else {
             if(this.isJson(event.text)) {
                 const items=JSON.parse(event.text);
-                return (
-                    <div className="card-container">
-                        {items.map((item) =>
-                            <span className="card">
-                                {Object.keys(item).map(function (key) {
-                                        return (
-                                            (<div><h6 className="room-detail">{key}</h6><span className="room-response">{item[key]}</span></div>)
-                                        )
-                                    }
-                                )}
-                            </span>
-                        )
-                        }
-                    </div>
-                );
-            } else {
+                if(typeof items == 'object' && Object.keys(items)[0] === 'questions'){
+                    console.log('items of benefits' + items)
+                    return (
+                        <div>
+                            {
+                                items.questions.map(i=>{
+                                return(<div className="ai chat-bubble">
+                                <a className="chat-content">{i}</a>
+                                </div>)
+                            })}
+                            {/* <div className="ai chat-bubble">
+                                <span className="chat-content">{event.text}</span>
+                            </div> */}
+                        </div>
+                    );
+                }
+                else{
+                    return (
+                        <div className="card-container">
+                            {items.map((item) =>
+                                <span className="card">
+                                    {Object.keys(item).map(function (key) {
+                                            return (
+                                                (<div><h6 className="room-detail">{key}</h6><span className="room-response">{item[key]}</span></div>)
+                                            )
+                                        }
+                                    )}
+                                </span>
+                            )
+                            }
+                        </div>
+                    );
+                }
+            }
+            else {
                 return (<div key={`${className}-${i}`} className={`${className} chat-bubble`}>
                     <span className="chat-content">{event.text}</span>
                 </div>);
@@ -305,7 +334,53 @@ export class ChatApp extends React.Component {
           ChatBubble(e, index, e.user)
       );
 
-
+      const leftSideWindow= ()=>{
+        if(typeof(this.toPassResponce)==='object' && typeof(this.toPassResponce) !== undefined){
+            if(Object.keys(this.toPassResponce)[0] === 'questions'){
+                return(
+                    <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
+                    <Row style={{marginLeft: "0px"}}>
+                        <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
+                            <Card className="fieldset-chart">
+                                <div style={{width:"90%",margin:"auto"}}>
+                                    <div>No data to Show</div> 
+                                </div>
+                            </Card>
+                        </Col>
+                    </Row>
+                    </div>
+                    
+                )
+            }
+            else{
+                return(
+                    <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
+                    {console.log(this.toPassResponce + "Check this Object")}
+                        <Switch>
+                            <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
+                            <Route path="/" component={()=> <GridDetail  response={this.toPassResponce}/>} />
+                        </Switch>
+                    </div>
+                    )
+            }
+          
+        }
+        else{
+          return(
+              <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
+                  <Row style={{marginLeft: "0px"}}>
+                      <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
+                          <Card className="fieldset-chart">
+                              <div style={{width:"90%",margin:"auto"}}>
+                                  <div>No data to Show</div> 
+                              </div>
+                          </Card>
+                      </Col>
+                  </Row>
+              </div>
+              )
+        }
+      }
 
       return (
         <BrowserRouter>
@@ -330,26 +405,8 @@ export class ChatApp extends React.Component {
                 </SideNav.Nav>
             </SideNav>
             {/* {this.toPassResponce.length>1? */}
-            {typeof(this.toPassResponce)==='object'?<div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
-                <Switch>
-                <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
-                <Route path="/" component={()=> <GridDetail  response={this.toPassResponce}/>} />
-                </Switch>
-                {/* <GraphComponent/> */}
-            </div>
-            :
-            <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
-                <Row style={{marginLeft: "0px"}}>
-                    <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
-                        <Card className="fieldset-chart">
-                            <div style={{width:"90%",margin:"auto"}}>
-                                <div>No data to Show</div> 
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-        }
+            {/* && Object.keys(this.toPassResponce[0])[0] */}
+            {    leftSideWindow()    }
             
             <div style={{maxHeight:"calc(100% - 40px)"}}>
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
