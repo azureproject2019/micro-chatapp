@@ -12,9 +12,9 @@ import Sidebar from './Sidebar';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import './Sidebar.css';
-import './ChatApp.css';
+// import Form from 'react-bootstrap/Form';
+import './Styles/Sidebar.css';
+// import './Styles/ChatApp.css';
 // import closeIcon from './error.svg';
 // import mailIdIcon from './sendmail.svg';
 // import jiraTicketIcon from './ticket.svg';
@@ -29,10 +29,10 @@ import GoogleLogin from 'react-google-login';
 
 import ScrollToBottom from 'react-scroll-to-bottom';
 //import 'bootstrap/dist/css/bootstrap.css';
-import GridDetail from './GridDetail';
-import GraphComponent from './Graph';
+import GridDetail from './Components/GridDetail';
+import GraphComponent from './Components/Graph';
+import './Styles/ChatApp.css';
 
-import './ChatApp.css';
 
 export class ChatApp extends React.Component {
 
@@ -228,14 +228,14 @@ export class ChatApp extends React.Component {
                 return (
                     <div className="card-container">
                         {items.map((item) =>
-                            <a className="card">
+                            <span className="card">
                                 {Object.keys(item).map(function (key) {
                                         return (
                                             (<div><h6 className="room-detail">{key}</h6><span className="room-response">{item[key]}</span></div>)
                                         )
                                     }
                                 )}
-                            </a>
+                            </span>
                         )
                         }
                     </div>
