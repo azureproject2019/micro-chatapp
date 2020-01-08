@@ -218,6 +218,22 @@ export class ChatApp extends React.Component {
         this.setState({ userMessage: '' });
     };
 
+    handleQuestion = (question) => {
+        let q=question
+
+        const msg = {
+            text: q,
+            user: 'human',
+        };
+
+        this.setState({
+            conversation: [...this.state.conversation, msg],
+        });
+
+        this.submitMessage({
+            message: q,
+        });
+    }
     isJson(str) {
         try {
             JSON.parse(str);
@@ -238,11 +254,11 @@ export class ChatApp extends React.Component {
                 if(typeof items == 'object' && Object.keys(items)[0] === 'questions'){
                     console.log('items of benefits' + items)
                     return (
-                        <div>
+                        <div className="question-options">
                             {
                                 items.questions.map(i=>{
-                                return(<div className="ai chat-bubble">
-                                <a className="chat-content">{i}</a>
+                                return(<div className="ai chat-bubble justify-null">
+                                <button className="chat-content chat-question-options" onClick={()=>this.handleQuestion(i)}>{i}</button>
                                 </div>)
                             })}
                             {/* <div className="ai chat-bubble">
