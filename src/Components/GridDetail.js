@@ -6,7 +6,7 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import '../Styles/ChatApp.css';
 
 class GridDetail extends Component{
-    constructor(props) {
+  constructor(props) {
         super(props);
         let responseData=this.props.response;
         this.state = {
@@ -14,7 +14,7 @@ class GridDetail extends Component{
           rowData:responseData
         }
       }
-    createColumnDefs() {
+  createColumnDefs() {
         let responseData=this.props.response;
         
         var count=0;
@@ -33,51 +33,51 @@ class GridDetail extends Component{
         if(count===1){
           console.log("count=1"+count)
           let responseMenu=Object.keys(responseData[0]);
-        return [
-          { 
-            headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
-            autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
-          }
-        ]
-      }
-      if(count===2){
-        console.log("count=1"+count)
-        let responseMenu=Object.keys(responseData[0]);
-      return [
-        { 
-          headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
-          autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
-        },
-        { 
-          headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
-          autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+          return [
+            { 
+              headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
+              autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+            }
+          ]
         }
-      ]
+        if(count===2){
+          console.log("count=1"+count)
+          let responseMenu=Object.keys(responseData[0]);
+          return [
+            { 
+              headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
+              autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+            },
+            { 
+              headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
+              autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+            }
+          ]
+        }
+        if(count===3){
+          console.log("count=1"+count)
+          let responseMenu=Object.keys(responseData[0]);
+            return [
+              { 
+                headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
+                autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+              },
+              { 
+                headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
+                autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+              },
+              { 
+                headerName:responseMenu[2], field: responseMenu[2], cellClass: 'cell-wrap',
+                autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
+              }
+            ]
+        }
     }
-    if(count===3){
-      console.log("count=1"+count)
-      let responseMenu=Object.keys(responseData[0]);
-    return [
-      { 
-        headerName:responseMenu[0], field: responseMenu[0], cellClass: 'cell-wrap',
-        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
-      },
-      { 
-        headerName:responseMenu[1], field: responseMenu[1], cellClass: 'cell-wrap',
-        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
-      },
-      { 
-        headerName:responseMenu[2], field: responseMenu[2], cellClass: 'cell-wrap',
-        autoHeight: true, width: 400, cellStyle: { 'white-space': 'normal' } 
-      }
-    ]
-  }
-      }
     render(){
         return(
-            <div style={{width:"100%",height:"100vh"}}>
+            <div style={{width:"calc(100% - 380px)",height:"100vh"}}>
                 <div style={{paddingTop:"10px"}}>
-                <div className="ag-theme-material" style={{height: '650px', width: '1200px'} }>
+                <div className="ag-theme-material" style={{height: '650px'} }>
                   <AgGridReact
                       columnDefs={this.createColumnDefs()}
                       rowData={this.state.rowData}>
