@@ -14,6 +14,14 @@ class WeatherChart extends Component{
     }
      
     render(){
+        let responseData=JSON.parse(JSON.stringify(this.props.response));
+        let seriesChart=responseData.map(i=>Object.assign(i,{
+            name:i[Object.keys(responseData[0])[0]],
+            y:100/responseData.length
+        }));
+        console.log(this.state.graphData)
+        this.state.seriesData.push(seriesChart);
+        const pieData = seriesChart;
         const WeatherChartConfig={
             chart: {
               type: 'column'
@@ -55,7 +63,7 @@ class WeatherChart extends Component{
               {
                   name: " ",
                   colorByPoint: true,
-                  data: this.state.graphData
+                  data: pieData
               }
           ],
         }

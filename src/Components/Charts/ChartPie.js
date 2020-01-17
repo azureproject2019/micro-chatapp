@@ -12,7 +12,7 @@ class ChartPie extends Component{
         super(props);
         this.state = {
             seriesData:[],
-            graphData:this.props.response
+            graphData:[]
 
         }
     }
@@ -27,66 +27,31 @@ class ChartPie extends Component{
             name:i[Object.keys(responseData[0])[0]],
             y:100/responseData.length
         }));
+        console.log(this.state.graphData)
         this.state.seriesData.push(seriesChart);
-        const ChartPieConfig={
-            chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false,
-              type: 'pie'
-          },
-          title: {
-              text: ' '
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>'
-                      // : {point.percentage:.1f} %
-                  }
-              }
-          },
-          credits:{
-              enabled:false
-          },
-          // this.responseData.map(i=>i.y=100/this.responseData.length)
-          series:[{
-              name: 'Brands',
-              colorByPoint: true,
-              data:seriesChart
-        }]
-          }
-          const pieData = seriesChart;
-          
+        const pieData = seriesChart;
         return(
             <div>
                 {/* {console.log("assign"+assignData)} */}
                 {console.log("Series"+this.state.seriesData)}
-                {/* <ReactHighcharts config={ChartPieConfig}/> */}
                 <HighchartsChart>
-    <Chart />
+                   <Chart />
 
-    {/* <Title>Combination chart</Title> */}
+                   {/* <Title>Combination chart</Title> */}
 
-    <Legend />
+                   <Legend />
 
-    <XAxis categories={['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']} />
+                   <XAxis categories={['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']} />
 
-    <YAxis>
+                   <YAxis>
 
-        <PieSeries 
-            name=" " 
-            data={pieData} 
-            showInLegend={true}
-        />
-    </YAxis>
-  </HighchartsChart>
+                       <PieSeries 
+                           name=" " 
+                           data={pieData} 
+                           showInLegend={true}
+                       />
+                   </YAxis>
+                </HighchartsChart>
             </div>
         )
     }
