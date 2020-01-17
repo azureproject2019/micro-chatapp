@@ -23,6 +23,7 @@
     "react-highcharts": "^16.1.0",
     "react-hot": "0.0.1",
     "react-hot-loader": "^4.12.12",
+    "react-idle-timer": "^4.2.12",
     "react-jsx-highcharts": "^3.6.1",
     "react-router-dom": "4.2.2",
     "react-scripts": "3.0.0",

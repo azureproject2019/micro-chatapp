@@ -32,6 +32,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import GridDetail from './Components/GridDetail';
 import GraphComponent from './Components/Graph';
 import './Styles/ChatApp.css';
+import IdleTimer from 'react-idle-timer';
 
 
 export class ChatApp extends React.Component {
@@ -52,6 +53,10 @@ export class ChatApp extends React.Component {
 // }
     constructor(props) {
         super(props);
+        this.idleTimer = null
+        this.onAction = this._onAction.bind(this)
+        this.onActive = this._onActive.bind(this)
+        this.onIdle = this._onIdle.bind(this)
         this.state = {
             userMessage: '',
             conversation: [],
@@ -400,7 +405,16 @@ export class ChatApp extends React.Component {
 
       return (
         <BrowserRouter>
+        
           <div id="chat">
+          <IdleTimer
+          ref={ref => { this.idleTimer = ref }}
+          element={document}
+          onActive={this.onActive}
+          onIdle={this.onIdle}
+          onAction={this.onAction}
+          debounce={250}
+          timeout={1000 * 60 * 10} />
               {/* <div className="col-md-12">
               <h1>{this.props.name}</h1>
               <p onClick={this.editSlogan}>Hello</p>
@@ -872,5 +886,21 @@ export class ChatApp extends React.Component {
          </div>
         </BrowserRouter>
       );
+  }
+  _onAction(e) {
+    // console.log('user did something', e)
+  }
+ 
+  _onActive(e) {
+    // console.log('user is active', e)
+    // console.log('time remaining', this.idleTimer.getRemainingTime())
+  }
+ 
+  _onIdle(e) {
+    // console.log('user is idle', e)
+    // console.log('last active', this.idleTimer.getLastActiveTime())
+    this.setState({isAuthenticated:false});
+    this.setState({toPassResponce:[]});
+    window.location.reload();
   }
 }
