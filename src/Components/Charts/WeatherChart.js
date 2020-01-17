@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ReactHighcharts from 'react-highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
-
+require("highcharts/highcharts-more")(Highcharts);
+require("highcharts/modules/exporting")(Highcharts);
 
 class WeatherChart extends Component{
     constructor(props) {
@@ -70,7 +71,8 @@ class WeatherChart extends Component{
         return(
             <div>
             {console.log("Chart"+this.state.graphData)}
-                <ReactHighcharts config={WeatherChartConfig}/>
+                {/* <ReactHighcharts config={WeatherChartConfig}/> */}
+                <HighchartsReact highcharts={Highcharts} options={WeatherChartConfig} />
             </div>
         )
     }
