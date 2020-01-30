@@ -4318,7 +4318,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
     background-color: white; }
 
 .sidebar-custom{
-    background-color: #f2eccf;
+    background: linear-gradient(45deg, #8e0a0f, #e92127);
     color: #333 !important;
     position: fixed;
     min-height:100%;
@@ -14407,13 +14407,13 @@ a.text-dark:hover, a.text-dark:focus {
     width:100%;
     padding:20px 20px;
     border-radius:10px 10px 0 0;
-    background-color: #427fe1;
+    background-color: #c0171c;
     color:#fff;
     font-size:0.8em;
     transition: all ease-in-out 0.5s;
 }
 .chat-button{
-    background: rgb(0, 108, 255);
+    background: #c0171c;
     color: rgb(255, 255, 255);
     width: 102%;
     height: 102%;
@@ -14427,7 +14427,7 @@ a.text-dark:hover, a.text-dark:focus {
     text-align: center;
 }
 .chat-button:hover ,.chat-button:active, .chat-button:focus{
-    background: rgb(12, 88, 195);
+    background: #c0171c;
     width: 102%;
     height: 102%;
     transition: 0.1s;
@@ -14689,8 +14689,8 @@ h1,h2,h3,h4,h5,h6{
     min-height: 35px;
     max-width:250px;
     padding: 8px 15px;
-    background-color: #427fe1;
-    color: white;
+    background-color: #ffb99a;
+    color: #000;
     border-radius:20px 20px 20px 3px;
     font-size:0.8rem;
     font-weight: 600 !important;
@@ -15411,7 +15411,7 @@ a:hover {
     /* border-radius: 50%; */
     /* background: #cca92c; */
     cursor: pointer;
-    box-shadow: 0 0 0 #3670ccca;
+    box-shadow: 0 0 0 #c0171cca;
     animation: pulse 2s infinite;
 }
 .pulse:hover {
@@ -15420,13 +15420,13 @@ a:hover {
 
 @-webkit-keyframes pulse {
     0% {
-      -webkit-box-shadow: 0 0 0 0 rgb(0, 108, 255, 0.4);
+      -webkit-box-shadow: 0 0 0 0 rgb(192, 23, 28, 0.4);
     }
     70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(0, 108, 255, 0);
+        -webkit-box-shadow: 0 0 0 10px rgba(192, 23, 28, 0);
     }
     100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(0, 108, 255, 0);
+        -webkit-box-shadow: 0 0 0 0 rgba(192, 23, 28, 0);
     }
   }
   @keyframes pulse {

@@ -1,5 +1,5 @@
 .sidebar-custom{
-    background-color: #f2eccf;
+    background: linear-gradient(45deg, #8e0a0f, #e92127);
     color: #333 !important;
     position: fixed;
     min-height:100%;
