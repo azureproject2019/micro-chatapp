@@ -38,7 +38,7 @@ class GraphComponent extends Component {
                         <Row style={{marginLeft: "0px"}}>
                             <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
                                 <Card className="fieldset-chart">
-                                {console.log(this.props.location.pathname)}
+                                {/* {console.log(this.props.location.pathname)} */}
                                     {/* <legend className="boxShw" id="5dd212491cda8" style={{overflow:"hidden"}}>Hotel Relavent Search</legend> */}
                                     <div style={{width:"90%",margin:"auto"}}>
                                     {count === 0 || count===undefined?

@@ -682,20 +682,22 @@ input[placeholder]{
 } */
 
 .room-detail{
-    display: inline-flex;
-    font-size: 14px;
+    /* display: inline-flex; */
+    font-size: 11px;
+    text-transform: uppercase;
     line-height: 1.6;
-    min-width: 49%;
-    max-width: 49%;
+    font-weight: 700;
+    /* min-width: 49%; */
+    /* max-width: 49%; */
     flex-wrap: wrap;
     overflow: auto;
 }
 .room-response{
-    display: inline-flex;
-    float: right;
+    /* display: inline-flex; */
+    /* float: right; */
     margin-left: 5px;
-    min-width: 49%;
-    max-width: 49%;
+    /* min-width: 49%; */
+    /* max-width: 49%; */
     /* width: 50%; */
     flex-wrap: wrap;
 }
@@ -721,8 +723,8 @@ input[placeholder]{
 .card {
     padding: 20px;
     margin: 10px 10px;
-    min-width: 350px;
-    max-width: 410px;
+    min-width: 270px;
+    max-width: 270px;
     /* height: 100%; */
     display: inline-block;
     align-items: center;
@@ -739,7 +741,7 @@ input[placeholder]{
 }
 
 .card:hover {
-    transform: scale(0.97, 0.97);
+    /* transform: scale(0.97, 0.97); */
 
     box-shadow: none;
 

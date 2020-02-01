@@ -274,18 +274,28 @@ export class ChatApp extends React.Component {
                 }
                 else{
                     return (
-                        <div className="card-container">
-                            {items.map((item) =>
-                                <span className="card">
-                                    {Object.keys(item).map(function (key) {
-                                            return (
-                                                (<div><h6 className="room-detail">{key}</h6><span className="room-response">{item[key]}</span></div>)
-                                            )
-                                        }
-                                    )}
-                                </span>
-                            )
-                            }
+                        <div>
+                            <div className="card-container">
+                                {items.map((item) =>
+                                    <span className="card">
+                                        {Object.keys(item).map(function (key) {
+                                                return (
+                                                    (<div><h6 className="room-detail">{key}</h6><span className="room-response">{item[key]}</span></div>)
+                                                )
+                                            }
+                                        )}
+                                    </span>
+                                    )
+                                }
+                            </div>
+                            
+                            <div style={{
+                                color: "#fff",
+                                fontSize: "10px",
+                                textAlign: "center",
+                            }}>
+                                Scroll to view more
+                            </div>
                         </div>
                     );
                 }
@@ -377,7 +387,7 @@ export class ChatApp extends React.Component {
                 return(
                     <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
                     {console.log(this.toPassResponce + "Check this Object")}
-                    {console.log(this.props.location.pathname)}
+                    {/* {console.log(this.props.location.pathname)} */}
                         <Switch>
                             <Route exact path="/Graph" component={()=> <GraphComponent response={this.toPassResponce}/>} />
                             <Route path="/" component={()=> <GridDetail  response={this.toPassResponce}/>} />
