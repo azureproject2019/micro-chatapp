@@ -369,7 +369,7 @@ export class ChatApp extends React.Component {
         if(typeof(this.toPassResponce)==='object' && typeof(this.toPassResponce) !== undefined){
             if(Object.keys(this.toPassResponce)[0] === 'questions'){
                 return(
-                    <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
+                    <div style={{ paddingLeft: "80px",paddingTop:"100px",background:"#f5f6fa",overflow:"auto" }}>
                     <Row style={{marginLeft: "0px"}}>
                         <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
                             <Card className="fieldset-chart">
@@ -385,7 +385,7 @@ export class ChatApp extends React.Component {
             }
             else{
                 return(
-                    <div  style={{paddingLeft:"75px",background:"#f5f6fa"}}>
+                    <div  style={{paddingLeft:"75px",paddingTop:"100px",background:"#f5f6fa"}}>
                     {console.log(this.toPassResponce + "Check this Object")}
                     {/* {console.log(this.props.location.pathname)} */}
                         <Switch>
@@ -399,7 +399,7 @@ export class ChatApp extends React.Component {
         }
         else{
           return(
-              <div style={{ paddingLeft: "80px",background:"#f5f6fa",overflow:"auto" }}>
+              <div style={{ paddingLeft: "80px",paddingTop:"100px",background:"#f5f6fa",overflow:"auto" }}>
                   <Row style={{marginLeft: "0px"}}>
                       <Col style={{ padding: "0.5%", paddingTop: "10px",maxWidth: "calc(100% - 360px)" }}>
                           <Card className="fieldset-chart">
@@ -447,7 +447,9 @@ export class ChatApp extends React.Component {
             </SideNav>
             {/* {this.toPassResponce.length>1? */}
             {/* && Object.keys(this.toPassResponce[0])[0] */}
+            <div>
             {    leftSideWindow()    }
+            </div>
             
             <div style={{maxHeight:"calc(100% - 40px)"}}>
               <div className="animate-chat chat-button-theme-bubble"   title="Click to Talk">
