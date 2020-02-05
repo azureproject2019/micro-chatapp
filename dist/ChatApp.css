@@ -14766,6 +14766,7 @@ input[placeholder]{
 .css-input:focus {
     transition: 0.3s;
     outline: none;
+    border: none;
     box-shadow:inset 0px 0px 8px #b6b6b6;
 
 }
