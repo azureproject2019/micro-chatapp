@@ -495,7 +495,7 @@ export class ChatApp extends React.Component {
                       { this.state.isChatModalOpened? (
                           <div id="chatbot-open" className=" slide-top chat-window chat-modal-window">
                               <div className="chat-heading">
-                                  <h1 className="animate-chat pacifino">Log N Solve</h1>
+                                  <h1 className="animate-chat pacifino" style={{color:"#fff"}}>Log N Solve</h1>
                                   <div className="interior">
                                       <div>
                                           {/* <button type="button" className="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">Login</button> */}
