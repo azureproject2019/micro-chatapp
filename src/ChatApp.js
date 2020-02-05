@@ -691,7 +691,7 @@ export class ChatApp extends React.Component {
                                   )}
                               />
                               <GoogleLogin
-                                  clientId="235633224678-u1p6ic082dvu78imce7hv47pc8kh0vfo.apps.googleusercontent.com"
+                                  clientId="1056030506768-0u14k1us6nljrjcr1j1qtq6fd9hm550u.apps.googleusercontent.com"
                                   render={renderProps => (
                                       <button className="btn--primary--outline uppercase" onClick={renderProps.onClick} disabled={renderProps.disabled}>
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"x="0px" y="0px"
