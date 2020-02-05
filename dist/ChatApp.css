@@ -4323,7 +4323,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
     position: fixed;
     min-height:100%;
     border-right: 1px solid #33333324;
-    z-index: 100;
+    z-index: 9999;
     /* overflow-y:scroll; */
     /* overflow-x:hidden; */
     /* color: #2785ff; */
@@ -14762,7 +14762,9 @@ input[placeholder]{
     animation: animate 3s cubic-bezier(0.54, 0.01, 0.52, 0.99) infinite;
 
 }
-
+.css-input:hover{
+    border: none;
+}
 .css-input:focus {
     transition: 0.3s;
     outline: none;

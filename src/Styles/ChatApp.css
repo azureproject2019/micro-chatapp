@@ -361,7 +361,9 @@ input[placeholder]{
     animation: animate 3s cubic-bezier(0.54, 0.01, 0.52, 0.99) infinite;
 
 }
-
+.css-input:hover{
+    border: none;
+}
 .css-input:focus {
     transition: 0.3s;
     outline: none;
