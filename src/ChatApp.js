@@ -13,6 +13,7 @@ import Sidebar from "./Sidebar";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ReactVoiceInput from 'react-voice-input';
 // import Form from 'react-bootstrap/Form';
 import "./Styles/Sidebar.css";
 // import './Styles/ChatApp.css';
@@ -64,7 +65,7 @@ export class ChatApp extends React.Component {
       isJiraModalOpened: false,
       isChatModalOpened: false,
       toEmailAddress: "",
-      isAuthenticated: false,
+      isAuthenticated: true,
       toPassResponce: [],
       checkResponse: [],
       jira: [
@@ -89,7 +90,9 @@ export class ChatApp extends React.Component {
       summary: "",
       description: ""
     };
+    this.onResult = this.onResult.bind(this)
   }
+ 
 
   componentDidMount() {
     this.startListenerWebSocketClient();
@@ -219,7 +222,13 @@ export class ChatApp extends React.Component {
   handleChange = event => {
     this.setState({ userMessage: event.target.value });
   };
+  onResult (result) {
+    this.setState({
+      userMessage: result
+    })
+    // console.log(result)
 
+  }
   handleSubmit = event => {
     event.preventDefault();
     if (!this.state.userMessage.trim()) return;
@@ -491,7 +500,9 @@ export class ChatApp extends React.Component {
         );
       }
     };
-
+    const onEnd = () => {
+      console.log('on end')
+    }
     return (
       <BrowserRouter>
         <div id="chat">
@@ -890,7 +901,12 @@ export class ChatApp extends React.Component {
                       </ScrollToBottom>
                       <form
                         onSubmit={this.handleSubmit}
-                        style={{ background: "#fff" }}
+                        style={{ background: "#fff" ,height: '50px', borderRadius: '10px'}}
+                      >
+                      <ReactVoiceInput
+                       onResult={this.onResult}
+                       onEnd={onEnd}
+                       onSpeechStart={console.log("started")}
                       >
                         <input
                           value={this.state.userMessage}
@@ -900,6 +916,7 @@ export class ChatApp extends React.Component {
                           autoFocus
                           placeholder="Type your message and hit Enter to send"
                         />
+                        </ReactVoiceInput>
                       </form>
                     </div>
                   ) : (
