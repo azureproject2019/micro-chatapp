@@ -144,7 +144,12 @@ export class ChatApp extends React.Component {
       return true;
     }
     this.listenSocket.onmessage = event => {
-      let response = JSON.parse(event.data.trim());
+      let response = '';
+	 try{   
+	    response = JSON.parse(event.data.trim());
+	 } catch (e) {
+		response =  event.data.trim();
+	 }
       // console.log(response.data);
       // this.checkResponse=response.data;
       if (isJson(response.data)) {
