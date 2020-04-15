@@ -145,26 +145,27 @@ export class ChatApp extends React.Component {
     }
     this.listenSocket.onmessage = event => {
       let response = '';
+      debugger;
 	 try{   
 	    response = JSON.parse(event.data.trim());
 	 } catch (e) {
 		response =  event.data.trim();
 	 }
-      // console.log(response.data);
-      // this.checkResponse=response.data;
-      if (isJson(response.data)) {
+      // console.log(response);
+      // this.checkResponse=response;
+      if (isJson(response)) {
         this.toPassResponce =
-          response.data !== undefined && response.data !== null
-            ? JSON.parse(response.data)
-            : response.data;
+          response !== undefined && response !== null
+            ? JSON.parse(response)
+            : response;
       } else {
-        this.toPassResponce = response.data;
+        this.toPassResponce = response;
       }
       console.log("------------" + this.toPassResponce);
       if (
-        response.data !== undefined &&
-        response.data !== null &&
-        response.data.indexOf("Error: connect ECONNREFUSED") !== -1
+        response !== undefined &&
+        response !== null &&
+        response.indexOf("Error: connect ECONNREFUSED") !== -1
       ) {
         const msg = {
           text: convertToMessage(
@@ -175,8 +176,8 @@ export class ChatApp extends React.Component {
         this.setState({
           conversation: [...this.state.conversation, msg]
         });
-      } else if (response.userId === this.state.userId) {
-        let message = response.data;
+      } else {
+        let message = response;
         if (
           isHTML(message) &&
           message.indexOf("Error: connect ECONNREFUSED") !== -1
