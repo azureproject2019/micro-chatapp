@@ -162,10 +162,11 @@ export class ChatApp extends React.Component {
         this.toPassResponce = response;
       }
       console.log("------------" + this.toPassResponce);
+      let arrReponse =response !== undefined && response !== null && typeof response !== "object"? response:[response]
       if (
         response !== undefined &&
         response !== null &&
-        response.indexOf("Error: connect ECONNREFUSED") !== -1
+        arrReponse.indexOf("Error: connect ECONNREFUSED") !== -1
       ) {
         const msg = {
           text: convertToMessage(
@@ -421,6 +422,7 @@ export class ChatApp extends React.Component {
         typeof this.toPassResponce === "object" &&
         typeof this.toPassResponce !== undefined
       ) {
+        debugger
         if (Object.keys(this.toPassResponce)[0] === "questions") {
           return (
             <div
